@@ -7,6 +7,7 @@ global X
 global Y
 global musicdata
 
+# module for achieving one hot encoding
 def oneHotEncoding():
     print("-----------Try to ONE HOT ENCODING-----------------")
     setToCompare = 'abcdefghijklmnopqrstuvwxyz '
@@ -40,17 +41,20 @@ def oneHotEncoding():
     print(Y1)
 
 
+# module that returns the data split into training and testing
 def getSplitData():
     musicdata = pd.read_csv('sample-data.csv')
     musicdata.head()
+    # try for box plot of our data
     df = pd.DataFrame(musicdata)
     df.plot.box()
+
     X = musicdata.iloc[:, :-1].values
     Y = musicdata.iloc[:, -1].values
     # print(X)
     # print(Y)
 
-    # print("----duplicates-----------")
+    # print("----duplicates detection and removal..-----------")
     print(musicdata.dtypes)
     duplicate_rows = musicdata[musicdata.duplicated()]
     df = musicdata.drop_duplicates()
