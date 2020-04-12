@@ -5,8 +5,8 @@ An attempt to automatic genre classification using machine learning approaches.
 > Files starting with 'music' are algorithms we tried for our dataset... eg: musicNN.py is NeuralNet <br>
 > 'labels.csv' and 'sample-data.csv' are our data.. <br>
 > Others , namely: 
-  1. sample-analysis.py (digital signal proccessing)
-  2. neuralnet.py (simple manual neural net)
-  3. audio.py (analyse using librosa)
-  4. Violin-Theme-MassTamilan.wav (used as sample for exploration)
-: we tried these to analyse and explore about the decomposition of audio that is mentioned in the paper.
+  > 1. sample-analysis.py (digital signal proccessing)
+  > 2. neuralnet.py (simple manual neural net)
+  > 3. audio.py (analyse using librosa)
+  > 4. Violin-Theme-MassTamilan.wav (used as sample for exploration)
+> : we tried these to analyse and explore about the decomposition of audio that is mentioned in the paper.
