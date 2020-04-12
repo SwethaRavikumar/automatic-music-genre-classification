@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import seaborn as sns
 
 def sigmoid(x):
     return 1/(1+np.exp(-x))
@@ -19,8 +18,14 @@ def form_nn_layers(layer_dictionary):
     return param_value
 
 def feed_forward_single(input, weights, bias):
-        total = np.dot(weights, input) + bias
-        return sigmoid(total), total
+    total=0
+    # inp = input.values.T.tolist()
+    # wei = weights.values.T.tolist()
+    for i in range(len(input)):
+        for j in range(len(weights)):
+            total+=input[i]*weights[j]
+    # total = np.dot(weights, input) + bias
+    return sigmoid(total+bias), total
 
 def full_forward(X, params, nn_diction):
     store = {}
@@ -63,7 +68,7 @@ def main_func(X,Y,batches, LR):
 musicdata = pd.read_csv('sample-data.csv')
 X = musicdata.iloc[:, :-1].values
 Y = musicdata.iloc[:, -1].values
-X = pd.DataFrame(X)
-Y = pd.DataFrame(Y)
+# X = pd.DataFrame(X)
+# Y = pd.DataFrame(Y)
 
 print(main_func(X,Y,batches=10,LR=0.01))
