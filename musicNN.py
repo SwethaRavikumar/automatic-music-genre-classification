@@ -19,7 +19,7 @@ def form_nn_layers(layer_dictionary):
         lay_inpsize = layer["input_dim"]
         lay_outsize= layer["output_dim"]
 
-        print('w for weights and b for bias')
+        print('w for weights and b for bias and is stored in dictionary along with a number for the node')
         param_value['w' + str(lay_index)] = np.random.randn(lay_inpsize, lay_outsize)*0.05
         param_value['b' + str(lay_index)] = np.random.randn(lay_outsize, 1)*0.05
 
@@ -27,6 +27,7 @@ def form_nn_layers(layer_dictionary):
 
 # forward propogation for single layer module that can be used for finding full forward propogation
 def feed_forward_single(input, weights, bias):
+    # find the value according to the formula total = [w]x[input] + bias
     total = np.dot(weights, input) + bias
     return sigmoid(total+bias), total
 
@@ -86,7 +87,7 @@ def main_func(X,Y,batches, LR):
         # once accuracy is found, it too should be returned by this functionality
     return costs
 
-# get the split data from the module from read_preprocess_data
+# get the data and split into X and Y
 musicdata = pd.read_csv('sample-data.csv')
 X = musicdata.iloc[:, :-1].values
 Y = musicdata.iloc[:, -1].values
